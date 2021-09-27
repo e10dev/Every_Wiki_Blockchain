@@ -50,9 +50,8 @@ yum 설정에 docker repository 추가
 최신 버전 설치
 # yum install -y docker-ce
 yum install -y docker-ce-20.10.5 docker-ce-cli-20.10.5 docker-ce-rootless-extras-20.10.5
-
-
-8. 
+```
+ 
 ## 설치
 1. 어디에서나 실행할 수 있는 인스턴스 생성
 ```bash
