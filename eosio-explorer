@@ -1,0 +1,122 @@
+환경 : centos 7.9, 4core 8ram 필수
+
+
+------------------------------------------------------------------------------------
+참고 사이트
+eosio : https://developers.eos.io/manuals/eos/latest/index
+github : https://github.com/EOSIO/eosio-explorer#platform-support 
+
+eosio-explorer 설치 전 centos에서 yarn 사용하기 위한 초기 설정 
+
+1. 시스템에 NODE.js가 설치되어 있지 않은 경우 다음 curl 명령으로 Nodesource 저장소를 사용
+   10.x 이상 버전 사용 필수
+
+curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
+
+2.  nodejs 설치 
+yum install nodejs 설치 
+
+3. yarn 리포지토리를 활성화하고 리포지토리의 GPG 키문제를 가져오려면 다음 명령어 실행
+curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+rpm --import https://dl.yarnpkg.com/rpm/pubkey.gpg
+
+4. yarn설치  
+sudo yum install yarn 
+------------------------------------------------------------------------------------
+
+
+
+------------------------------------------------------------------------------------
+yarn global add eosio-explorer - 어디에서나 실행할 수 있는 인스턴스 생성
+
+git clone https://github.com/EOSIO/eosio-explorer.git
+
+yarn build - build시 오류 발생 
+------------------------------------------------------------------------------------
+Command failed with exit code 127 / react-scripts: command not found 오류 시 밑에 명령어 실행
+
+yarn install
+npm install
+npm update 
+------------------------------------------------------------------------------------
+vs/editor/contrib/gotoSymbol/goTocommands 오류 시 밑에 명령어 실행
+
+yarn add -D monaco-editor-webpack-plugin
+yarn add monaco-editor
+------------------------------------------------------------------------------------
+cannot find module '@babel/helper-regex' require stack 오류 시
+
+yarn add @babel/helper-regex 설치
+
+------------------------------------------------------------------------------------
+npm update canuise-lite browserslist 오류 시 밑에 명령어 실행
+
+npm update caniuse-lite browserslist
+npm i npm-update-all -g npm-update-all
+-----------------------------------------------------------------------------------
+yarn upgrade
+yarn add reactstrap 
+-----------------------------------------------------------------------------------
+웬만한 오류 위에 명령어로 다 잡을 수 있음
+
+이렇게 설치 진행하다가
+
+yarn install 
+
+eosio-explorer init -> 1번 누르고 설치 진행 ( 그 전에 도커 설치 확인 )
+eosio
+eosio.cdt
+postgresql 3개 자동 설치
+
+eosio-explorer start -> localhost:5111 사이트 창 하나 띄어줌
+
+설치 진행하다가 running as root without --no-sandbox is not supported 이런 오류 나오면 무시하고 설치 진행해도 무관
+그 이유는 위 오류가 크롬 에러인데 서버 쪽에서 가상으로 크롬사이트를 돌려주는 역할, 나중에 공부하면서 오류까지 잡겠습니다.
+sandbox 오류 관련 
+https://bugs.chromium.org/p/chromium/issues/detail?id=638180
+https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md
+
+
+ ---------------------------------------------------------------------------------------------------
+
+
+서버 3대 연결 후 eosio-explorer 설치하고 사이트 접속
+
+docker: Error response from daemon: driver failed programming external connectivity on endpoint eosio_nodeos (e0f41bc24f3e4480937931b657c77d3ee892296749c6c10cd470392ee4624949): Error starting userland proxy: listen tcp 0.0.0.0:8888: bind: address already in use.
+eosio-explorer init을 할 때 1번 누르고 설치 진행 시 오류가 날 경우 nodeos가 127.0.0.1:8888 을 사용하고 있으므로 포트 충돌이 난다.
+
+cd /node1/config/config.ini 들어가면 아래와 같이 설정
+130번 줄에 http-server-address = 0.0.0.0:8888
+226번 줄에 p2p-listen-endpoint - 0.0.0.0:9876
+145줄 access-control-allow-origin = * <--- 이거 설정 안해주면 info 페이지 못 불러옴
+
+eosio-explorer init을 할 때 2번을 눌러서 http://192.168.16.24:8888 접속한다. 
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
