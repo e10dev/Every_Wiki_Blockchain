@@ -80,7 +80,7 @@ public:
 여기서는 hello라는 class를 선언해 주었고, 그리고 contract를 상속받습니다.
 contract를 상속받아야만 wast(웹 어셈블리) 파일을 생성할 수 있고, smart contract의 owner를 저장할 수 있습니다.
 이 contract도 eosio::contract 즉 eosio에서 제공하는 기능입니다.
-다음의 using contract :: contract 함수 즉 생성자를 사용하겠다는 선언입니다.
+다음의 `using contract :: contract`함수 즉 생성자를 사용하겠다는 선언입니다.
 
 ```bash
 // @abi action
@@ -92,8 +92,8 @@ contract에서 사용할 hi라는 함수를 선언 및 정의를 해줍니다.
 여기서 인자값으로 account_name 타입의 user를 변수로 받습니다.
 함수를 action하기 위해서는 abi에 함수를 추가해야하는데, 이를 해 주는 것이 @abi action입니다.
 
-위에 작업을 끝낸 후 eosio-cpp -o hello.wasm hello.cpp -abigen 입력합니다.
-그러면 hello.abi, hello.cpp, hello.wasm 3개의 파일이 생성됩니다.
+위에 작업을 끝낸 후 `osio-cpp -o hello.wasm hello.cpp -abigen`입력합니다.
+그러면 `hello.abi, hello.cpp, hello.wasm`3개의 파일이 생성됩니다.
 
 아까 만들어 놓은 public key를 선택해서 계정을 생성합니다
 ```bash
