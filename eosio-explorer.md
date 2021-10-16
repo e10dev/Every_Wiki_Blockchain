@@ -105,7 +105,7 @@ docker: Error response from daemon: driver failed programming external connectiv
 ```bash
 cd /node1/config/config.ini 들어가면 아래와 같이 설정
 130번 줄에 http-server-address = 0.0.0.0:8888
-226번 줄에 p2p-listen-endpoint - 0.0.0.0:9876
+396번 줄에 state-history-endpoint = 0.0.0.0:8080 <- 얘 필수 제발 제발 제발
 145줄 access-control-allow-origin = * <--- 이거 설정 안해주면 블록정보 페이지 못 불러옴
 eosio-explorer init을 할 때 2번을 눌러서 http://192.168.16.24:8888 접속한다.
 ```
