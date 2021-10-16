@@ -17,17 +17,13 @@ tail -f nohup.out : 정상적으로 블록 생성되는지 확인
 ### 192.168.16.24  -> 192.168.16.23 연결
 ```bash
 nohup nodeos 
---p2p-listen-endpoint 192.168.16.24:9876 
+--p2p-listen-endpoint 0.0.0.0:9876 
 --p2p-peer-address 192.168.16.23:9876 
 --config-dir ./node1/config/ 
 --data-dir ./node1/data/ 
 --plugin eosio::chain_api_plugin 
 --plugin eosio::net_api_plugin 
---plugin eosio::http_plugin 
---plugin eosio::producer_api_plugin 
---plugin eosio::state_history_plugin 
---disable-replay-opts 
---delete-all-blocks &
+--plugin eosio::producer_api_plugin --disable-replay-opts
 ```
 ### 192.168.16.25 -> 192.168.16.23, 192.168.16.24 연결
 ```bash
