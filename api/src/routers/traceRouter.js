@@ -1,8 +1,9 @@
 import express from "express";
-import { writebody,
-         readbody,
-         updatebody,
-         deletebody } from "../controllers/blockchain/traceController.js";
+import { writeBlock,
+         readBlock,
+         updateTitle,
+         updateArticle,
+         deleteBlock } from "../controllers/blockchain/traceController.js";
 
 import routes from "../routes.js";
 
@@ -11,7 +12,7 @@ const traceRouter = express.Router();
 /**
  * @swagger
  * path:
- *  /block/writebody:
+ *  /block/writeBlock:
  *    post:
  *      summury: write contents to wiki
  *      tags: [BlockChain API Service]
@@ -20,26 +21,26 @@ const traceRouter = express.Router();
  *          content:
  *              application/json:
  *                  schema:
- *                      $ref: '#/components/schemas/wikibody'
+ *                      $ref: '#/components/schemas/wikidata'
  *      responses:
  *          "200":
  *              description: write contents to wiki
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/wikibody'
+ *                          $ref: '#/components/schemas/wikidata'
  */
- traceRouter.post(routes.writebody, writebody);
+ traceRouter.post(routes.writeBlock, writeBlock);
 
 /**
  * @swagger
  * path:
- *  /block/readbody:
+ *  /block/readBlock:
  *    get:
- *      summury: readbody wiki contents
+ *      summury: readBlock wiki contents
  *      tags: [BlockChain API Service]
  *      parameters:
- *          - name: user_id
+ *          - name: articleId
  *            in: query
  *            required: true
  *            description: user id pk
@@ -47,18 +48,18 @@ const traceRouter = express.Router();
  *                  type: integer
  *      responses:
  *          "200":
- *              description: readbody wiki contents
+ *              description: readBlock wiki contents
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/wikibody'
+ *                          $ref: '#/components/schemas/wikidata'
  */
- traceRouter.get(routes.readbody, readbody);
+ traceRouter.get(routes.readBlock, readBlock);
 
 /**
  * @swagger
  * path:
- *  /block/updatebody:
+ *  /block/updateTitle:
  *    put:
  *      summury: update contents to wiki
  *      tags: [BlockChain API Service]
@@ -67,21 +68,44 @@ const traceRouter = express.Router();
  *          content:
  *              application/json:
  *                  schema:
- *                      $ref: '#/components/schemas/wikibody'
+ *                      $ref: '#/components/schemas/wikidata'
  *      responses:
  *          "200":
  *              description: update contents to wiki
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/wikibody'
+ *                          $ref: '#/components/schemas/wikidata'
  */
- traceRouter.put(routes.updatebody, updatebody);
+ traceRouter.put(routes.updateTitle, updateTitle);
 
 /**
  * @swagger
  * path:
- *  /block/deletebody:
+ *  /block/updateArticle:
+ *    put:
+ *      summury: update contents to wiki
+ *      tags: [BlockChain API Service]
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/wikidata'
+ *      responses:
+ *          "200":
+ *              description: update contents to wiki
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/wikidata'
+ */
+ traceRouter.put(routes.updateArticle, updateArticle);
+
+/**
+ * @swagger
+ * path:
+ *  /block/deleteBlock:
  *    delete:
  *      summury: delete wiki contents
  *      tags: [BlockChain API Service]
@@ -90,16 +114,16 @@ const traceRouter = express.Router();
  *          content:
  *              application/json:
  *                  schema:
- *                      $ref: '#/components/schemas/wikibody'
+ *                      $ref: '#/components/schemas/wikidata'
  *      responses:
  *          "200":
  *              description: delete wiki contents
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/wikibody'
+ *                          $ref: '#/components/schemas/wikidata'
  */
- traceRouter.delete(routes.deletebody, deletebody);
+ traceRouter.delete(routes.deleteBlock, deleteBlock);
 
 
 export default traceRouter;

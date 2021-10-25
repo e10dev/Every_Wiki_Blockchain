@@ -1,15 +1,17 @@
-const HOME                      = "/";
-const WRITEBODY                 = "/block/writebody";
-const READBODY                  = "/block/readbody";
-const UPDATEBODY                = "/block/updatebody";
-const DELETEBODY                = "/block/deletebody";
+const HOME                       = "/";
+const WRITEBLOCK                 = "/block/writeBlock";
+const READBLOCK                  = "/block/readBlock";
+const UPDATETITLE                = "/block/updateTitle";
+const UPDATEARTICLE              = "/block/updateArticle";
+const DELETEBLOCK                = "/block/deleteBlock";
 
 const routes = {
     home:                       HOME,
-    writebody:                  WRITEBODY,
-    readbody:                   READBODY,
-    updatebody:                 UPDATEBODY,
-    deletebody:                 DELETEBODY
+    writeBlock:                 WRITEBLOCK,
+    readBlock:                  READBLOCK,
+    updateTitle:                UPDATETITLE,
+    updateArticle:              UPDATEARTICLE,
+    deleteBlock:                DELETEBLOCK
 };
 
 export default routes;

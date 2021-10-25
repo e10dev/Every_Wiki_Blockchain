@@ -18,7 +18,8 @@ class Eosrpc {
     init() {
         const privateKeys = ['5HzFwkbV1NynFmvrrTztPAmmr7PfK9fFspnBHaeuR4R3hhjkB5Z'];
         const signatureProvider = new JsSignatureProvider(privateKeys);
-        rpc = new JsonRpc('http://127.0.0.1:8888', { fetch }); //required to read blockchain state
+        const IP = process.env.EOSIO_IP;
+        rpc = new JsonRpc(`http://${IP}:8888`, { fetch }); //required to read blockchain state
         api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() }); //required to submit transactions
     }
 
