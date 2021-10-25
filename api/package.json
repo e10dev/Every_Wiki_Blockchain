@@ -1,7 +1,7 @@
 {
-    "name": "every-wiki-blockchain-api",
+    "name": "cosmetics_jeju",
     "version": "1.0.0",
-    "description": "Every Wiki Blockchain API Server",
+    "description": "",
     "main": "index.js",
     "scripts": {
         "start": "nodemon --exec babel-node src/init.js --delay 2"
