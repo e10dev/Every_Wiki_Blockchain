@@ -4,7 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon --exec babel-node src/init.js --delay 2"
+        "start": "nodemon --exec babel-node src/init.js --delay 2",
+        "upgrade": "git pull origin main",
+        "setup": "git pull origin main && npm i && npm start"
     },
     "author": "",
     "license": "ISC",

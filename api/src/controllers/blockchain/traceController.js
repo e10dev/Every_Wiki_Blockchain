@@ -10,7 +10,8 @@ let api;
 
 const privateKeys = ['5HzFwkbV1NynFmvrrTztPAmmr7PfK9fFspnBHaeuR4R3hhjkB5Z','5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3'];
 const signatureProvider = new JsSignatureProvider(privateKeys);
-rpc = new JsonRpc('http://127.0.0.1:8888', { fetch }); //required to read blockchain state
+const IP = process.env.EOSIO_IP;
+rpc = new JsonRpc(`http://${IP}:8888`, { fetch }); //required to read blockchain state
 api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() }); //required to submit transactions
 
 export const writebody = async (req, res) => {   
