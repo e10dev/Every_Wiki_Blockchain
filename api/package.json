@@ -1,14 +1,14 @@
 {
-    "name": "cosmetics_jeju",
+    "name": "every-wiki-blockchain-api",
     "version": "1.0.0",
-    "description": "",
+    "description": "Every Wiki Blockchain API Server",
     "main": "index.js",
     "scripts": {
         "start": "nodemon --exec babel-node src/init.js --delay 2",
         "upgrade": "git pull origin main",
         "setup": "git pull origin main && npm i && npm start"
     },
-    "author": "",
+    "author": "e10dev",
     "license": "ISC",
     "dependencies": {
         "@babel/polyfill": "^7.12.1",
