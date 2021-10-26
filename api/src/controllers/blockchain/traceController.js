@@ -41,7 +41,7 @@ export const writeBlock = async (req, res) => {
             blocksBehind: 3,
             expireSeconds: 30,
         });
-        res.send( 'ok' );
+        res.send('write block ok.');
     }
     catch (error)
     {
@@ -93,7 +93,7 @@ export const updateTitle = async (req, res) => {
             blocksBehind: 3,
             expireSeconds: 30,
         });
-        res.send( 'ok' );
+        res.send('update title ok.');
     }
     catch (error)
     {
@@ -120,7 +120,7 @@ export const updateArticle = async (req, res) => {
                 wiki: "wiki",
                 username: u,
                 articleId: a,
-                title: w,
+                wikitext: w,
             },
             }]
         },
@@ -128,7 +128,7 @@ export const updateArticle = async (req, res) => {
             blocksBehind: 3,
             expireSeconds: 30,
         });
-        res.send( 'ok' );
+        res.send('update article ok.');
     }
     catch (error)
     {
@@ -159,7 +159,7 @@ export const deleteBlock = async (req, res) => {
             blocksBehind: 3,
             expireSeconds: 30,
         });
-        res.send( 'ok' );
+        res.send('delete block ok.');
     }
     catch (error)
     {
